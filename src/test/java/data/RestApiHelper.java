@@ -1,10 +1,12 @@
 package data;
 
 import com.google.gson.Gson;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
+
 
 import static io.restassured.RestAssured.given;
 
@@ -23,21 +25,12 @@ public class RestApiHelper {
     public static void sendPaymentRequest(CardInfo cardInfo, String path, int status) {
         given()
                 .spec(requestSpec)
+                .filter(new AllureRestAssured())
                 .body(gson.toJson(cardInfo))
                 .when()
                 .post(path)
-                .then().log().all()
+                .then()
+                .log().all()
                 .statusCode(status);
     }
-
-    public static void sendPaymentRequestOnCredit(CardInfo cardInfo, String path, int status) {
-        given()
-                .spec(requestSpec)
-                .body(gson.toJson(cardInfo))
-                .when()
-                .post(path)
-                .then().log().all()
-                .statusCode(status);
-    }
-
 }
