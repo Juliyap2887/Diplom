@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 import static data.RestApiHelper.sendPaymentRequest;
-import static data.RestApiHelper.sendPaymentRequestOnCredit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ApiTest {
@@ -70,7 +69,7 @@ public class ApiTest {
                 DataHelper.getCurrentYear(),
                 DataHelper.getValidHolder(),
                 DataHelper.getValidCvc());
-        sendPaymentRequestOnCredit(cardInfo, "/api/v1/credit", 200);
+        sendPaymentRequest(cardInfo, "/api/v1/credit", 200);
         assertEquals("APPROVED", SQLHelper.getCreditStatus());
     }
 
@@ -82,7 +81,7 @@ public class ApiTest {
                 DataHelper.getCurrentYear(),
                 DataHelper.getValidHolder(),
                 DataHelper.getValidCvc());
-        sendPaymentRequestOnCredit(cardInfo, "/api/v1/credit", 400);
+        sendPaymentRequest(cardInfo, "/api/v1/credit", 400);
         assertEquals("DECLINED", SQLHelper.getCreditStatus()); // BUG
     }
 }

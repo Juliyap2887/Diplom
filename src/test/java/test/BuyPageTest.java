@@ -74,7 +74,7 @@ public class BuyPageTest {
         CardInfo cardInfo = new CardInfo(
                 DataHelper.getCardApproved(),
                 DataHelper.getCurrentMonth(),
-                DataHelper.getYearFiveYearsLongerCurrentOne(),
+                DataHelper.getYearXYearsLongerCurrentOne(5),
                 DataHelper.getValidHolder(),
                 DataHelper.getValidCvc());
         var mainPage = new MainPage();
@@ -224,7 +224,7 @@ public class BuyPageTest {
         CardInfo cardInfo = new CardInfo(
                 DataHelper.getCardApproved(),
                 DataHelper.getCurrentMonth(),
-                DataHelper.getYearSixYearsLongerCurrentOne(),
+                DataHelper.getYearXYearsLongerCurrentOne(6),
                 DataHelper.getValidHolder(),
                 DataHelper.getValidCvc());
         var mainPage = new MainPage();

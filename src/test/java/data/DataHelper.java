@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+import static org.bouncycastle.oer.its.ieee1609dot2.basetypes.Duration.years;
+
 
 public class DataHelper {
 
@@ -66,12 +68,8 @@ public class DataHelper {
         return "";
     }
 
-    public static String getYearSixYearsLongerCurrentOne() { // год, который наступит через 6 лет
-        return LocalDate.now().plusYears(6).format(DateTimeFormatter.ofPattern("yy"));
-    }
-
-    public static String getYearFiveYearsLongerCurrentOne() { // год, который наступит через 5 лет
-        return LocalDate.now().plusYears(5).format(DateTimeFormatter.ofPattern("yy"));
+    public static String getYearXYearsLongerCurrentOne(int year) { // год, который наступит через 6 лет
+        return LocalDate.now().plusYears(years).format(DateTimeFormatter.ofPattern("yy"));
     }
 
     public static String getValidHolder() { // валидный владелец
