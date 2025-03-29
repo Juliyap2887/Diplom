@@ -68,8 +68,8 @@ public class DataHelper {
         return "";
     }
 
-    public static String getYearXYearsLongerCurrentOne(int year) { // год, который наступит через 6 лет
-        return LocalDate.now().plusYears(years).format(DateTimeFormatter.ofPattern("yy"));
+    public static String getYearXYearsLongerCurrentOne(int year) { // год, который наступит через X лет
+        return LocalDate.now().plusYears(year).format(DateTimeFormatter.ofPattern("yy"));
     }
 
     public static String getValidHolder() { // валидный владелец
